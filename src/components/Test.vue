@@ -16,12 +16,25 @@
     <div>
       <input type="text" v-on:keyup="onPressKeyUp">
     </div>
+    <div>
+      <b>Receiving props:</b>
+      <p>{{myCoolProp}}</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "test",
+
+  props: {
+    //my prop is called message
+    myCoolProp: {
+      type: String, // specify the type
+      default: "Foobar" //set a default val
+    }
+  },
+
   data() {
     return {
       title: "<h2>Hello world</h2>",
@@ -37,6 +50,7 @@ export default {
       ]
     };
   },
+
   methods: {
     greet: greeting => {
       alert("Hey " + greeting);

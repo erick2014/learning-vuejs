@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <test></test>
+    <test myCoolProp="This looks amazing!"></test>
   </div>
 </template>
 
 <script>
-  import Test from './components/test';
-  export default {
-    name: 'App',
-    components:{
-      Test
-    }
-  };
+import Test from "./components/test";
+export default {
+  name: "App",
+  components: {
+    Test
+  }
+};
 </script>
 
 <style>
