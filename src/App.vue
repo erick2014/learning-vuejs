@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <test myCoolProp="This looks amazing!"></test>
+    <users></users>
   </div>
 </template>
 
 <script>
 import Test from "./components/test";
+import Users from "./components/Users";
+
 export default {
   name: "App",
   components: {
-    Test
+    Test,
+    Users
   }
 };
 </script>
