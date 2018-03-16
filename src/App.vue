@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <users></users>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Test from "./components/test";
+import Test from "./components/TestComp";
 import Users from "./components/Users";
 
 export default {
