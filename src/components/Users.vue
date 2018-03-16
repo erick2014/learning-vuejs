@@ -4,6 +4,24 @@
     <ul class="users-list">
       <li v-for="user in users" v-bind:key="user.key">{{user.name}}</li>
     </ul>
+
+    <h2>Add a new user:</h2>
+    <form v-on:submit="addUser">
+      <div>
+        <span>FirstName: </span>
+        <input type="text" v-model="newUser.name"/>
+      </div>
+      <div>
+        <span>Contacted</span>
+        <input type="checkbox" name="contacted"  v-model="newUser.contacted"/>
+      </div>
+      <div>
+        <span>Email</span>
+        <input type="text" name="email"  v-model="newUser.email"/>
+      </div>
+      <input type='submit' value='Save user'>
+    </form>
+
   </div>
 </template>
 
@@ -11,10 +29,14 @@
 export default {
   name: "users",
 
-  props: {},
-
   data() {
     return {
+      newUser: {
+        key: "",
+        name: "",
+        contacted: false,
+        email: ""
+      },
       users: [
         {
           key: 0,
@@ -38,7 +60,17 @@ export default {
     };
   },
 
-  methods: {}
+  methods: {
+    addUser: function(ev) {
+      ev.preventDefault();
+      this.users.push({
+        key: this.users.length + 1,
+        name: this.newUser.name,
+        contacted: this.newUser.contacted,
+        email: this.newUser.email
+      });
+    }
+  }
 };
 </script>
 
