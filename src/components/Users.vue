@@ -2,7 +2,14 @@
   <div class="users">
     <h1>Users page</h1>
     <ul class="users-list">
-      <li v-for="user in users" v-bind:key="user.key">{{user.name}}</li>
+      <li v-for="(user,index) in users" v-bind:key="user.key">
+        <div class="user-item">
+          <div class="user-item-name">{{user.name}}</div>
+          <div>
+            <button type="button" v-on:click="deleteUser(index)">X</button>
+          </div>
+        </div>
+      </li>
     </ul>
 
     <h2>Add a new user:</h2>
@@ -69,6 +76,10 @@ export default {
         contacted: this.newUser.contacted,
         email: this.newUser.email
       });
+    },
+    deleteUser: function(userIndex) {
+      console.log("user index", userIndex);
+      this.users.splice(userIndex, 1);
     }
   }
 };
@@ -82,6 +93,16 @@ export default {
 }
 .users-list li {
   padding: 10px 0;
+}
+
+.user-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-item-name {
+  margin-right: 15px;
 }
 </style>
 
